@@ -29,6 +29,18 @@ The last bolt of the topology (CalculatorBolt) reads the data corresponding to t
 Finally, bolt append newly computed tweet by adding the language of the tweet and the timestamp of the current moment to the basic information.<br>
 The language of the tweet will be used by batch layer in the next cycle of computation to load the correct afinn file for calculation of the sentiment value of the tweet. 
 Instead the timestamp is necessary to the mapper of hadoop to decide whether or not to compute the tweet during the current computation.<br>
+<h2>Prerequisistes</h2>
+To run the program it is necessary to download and link to the project of the following libraries:
+<ul>
+  <li><b>Apache Hadoop:</b> available at <a href="https://hadoop.apache.org/docs/r3.0.0/"> https://hadoop.apache.org/docs/r3.0.0/ </a></li>
+  <li><b>Apache Storm:</b> available at <a  href="https://storm.apache.org/downloads.html">https://storm.apache.org/downloads.html</a></li>
+  <li><b>Apache HBase:</b> available at <a href="https://hbase.apache.org/downloads.html" >https://hbase.apache.org/downloads.html </a></li>
+  <li><b>Twitter4j:</b> available from Maven at link: org.twitter4j:twitter4j-stream:4.0.3</li>
+  <li><b>jfree:</b> available from Maven at the two link: org.jfree:jcommon:1.0.24 and org.jfree:jfreechart:1.5.0</li>
+  <li><b>google.guava:</b> available from Maven at link: com.google.guava:guava:23.0</li>
+  <li><b>googlecode.disruptor:</b> available from Maven at link: com.googlecode.disruptor:disruptor:2.10.1</li>
+</ul>
+Once downloaded and configured HBase it is also necessary to start the database by performing the following operation from the terminal: <em>start-hbase.sh</em>
 
 <h2>How to use the code</h2>
 To use the code it is necessary to set the following settings in the <b>twitter_config.properties</b> file:
