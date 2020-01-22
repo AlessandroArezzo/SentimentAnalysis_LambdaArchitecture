@@ -35,10 +35,10 @@ To run the program it is necessary to download and link to the project of the fo
   <li><b>Apache Hadoop:</b> available at <a href="https://hadoop.apache.org/docs/r3.0.0/"> https://hadoop.apache.org/docs/r3.0.0/ </a></li>
   <li><b>Apache Storm:</b> available at <a  href="https://storm.apache.org/downloads.html">https://storm.apache.org/downloads.html</a></li>
   <li><b>Apache HBase:</b> available at <a href="https://hbase.apache.org/downloads.html" >https://hbase.apache.org/downloads.html </a></li>
-  <li><b>Twitter4j:</b> available from Maven at link: org.twitter4j:twitter4j-stream:4.0.3</li>
-  <li><b>jfree:</b> available from Maven at the two link: org.jfree:jcommon:1.0.24 and org.jfree:jfreechart:1.5.0</li>
-  <li><b>google.guava:</b> available from Maven at link: com.google.guava:guava:23.0</li>
-  <li><b>googlecode.disruptor:</b> available from Maven at link: com.googlecode.disruptor:disruptor:2.10.1</li>
+  <li><b>Twitter4j:</b> available from Maven at link: org.twitter4j:twitter4j-stream</li>
+  <li><b>jfree:</b> available from Maven at the two link: org.jfree:jcommon and org.jfree:jfreechart</li>
+  <li><b>google.guava:</b> available from Maven at link: com.google.guava:guava</li>
+  <li><b>googlecode.disruptor:</b> available from Maven at link: com.googlecode.disruptor:disruptor</li>
 </ul>
 Once downloaded and configured HBase it is also necessary to start the database by performing the following operation from the terminal: <em>start-hbase.sh</em>
 
