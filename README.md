@@ -12,14 +12,14 @@ The Lambda Architecture presented involves the use of the following software sys
 <br>
 There is then a software module (situated in the print_result package) which contains the code that allows you to query HBase and display a graph showing its results.
 
-<h2>Batch Layer</h2>
+<h3>Batch Layer</h3>
 The batch layer was created with Apache Hadoop. <br>
 This involves analyzing the data contained in the master dataset, the path of which must be defined in the twitter_config.properties file.
 To operate, the mapper reads the tweets from the dataset, filters them considering only those that contain the requested query and classifies them by sending the classification to the reducer.<br>
 The reducer counts how many tweets are received for a given classification and copies the values in the relative table contained in hbase.<br>
 It is important to note that before each batch cycle the timestamp is calculated so that only tweets that have not been processed by the speed layer in the time elapsed between the start of the batch cycle and the current time are considered.
 
-<h2>Speed Layer</h2>
+<h3>Speed Layer</h3>
 The speed layer was implemented with Apache Storm.<br>
 This involves the analysis of tweets downloaded from Twitter in streaming.The topology has a spout and two bolts<br>
 The spout downloads the tweets that contains the query through the Twitter4j library and the credentials provided by Twitter after creating an app in the developer section. After that it sends the tweet to the first bolt of the topology.<br>
