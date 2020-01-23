@@ -88,6 +88,7 @@ public class PrintResult extends ApplicationFrame{
         }
         else{
             System.out.println("ERROR: query not exist in hbase");
+            System.exit(1);
         }
     }
 }

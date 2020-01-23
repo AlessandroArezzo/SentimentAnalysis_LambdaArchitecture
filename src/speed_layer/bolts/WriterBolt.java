@@ -22,9 +22,9 @@ import java.io.FileWriter;
 
 // Last bolt of the topology: receive classification and increment corresponding value in the hbase table
 // Sometimes print result of the speed layer (real time view) in log
-public class CalculatorBolt extends BaseRichBolt {
+public class WriterBolt extends BaseRichBolt {
 
-    private static final Logger logger = LoggerFactory.getLogger(CalculatorBolt.class);
+    private static final Logger logger = LoggerFactory.getLogger(WriterBolt.class);
     private static final String path_dataset=utils.getValue("PATH_MASTER_DATASET");
     private Table table;
 
@@ -35,7 +35,7 @@ public class CalculatorBolt extends BaseRichBolt {
     // Map that contains real time view results
     private static ConcurrentHashMap<String,Integer> sentimentMap=new ConcurrentHashMap<>();
 
-    public CalculatorBolt(int timeToPrint){
+    public WriterBolt(int timeToPrint){
         timeToPrintInLog=timeToPrint;
     }
 

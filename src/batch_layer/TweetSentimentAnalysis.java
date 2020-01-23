@@ -27,7 +27,7 @@ import java.sql.Timestamp;
 
 public class TweetSentimentAnalysis extends Configured implements Tool{
 
-    public static class ClassificatorMapper extends Mapper<Object, Text, Text, IntWritable> {
+    public static class ClassifierMapper extends Mapper<Object, Text, Text, IntWritable> {
         private static long timestamp=0;
         private static String regex_csv="\",";
         private static int positionText=Integer.parseInt(utils.getValue("INDEX_TEXT_TWEET_IN_DATASET"));
@@ -155,7 +155,7 @@ public class TweetSentimentAnalysis extends Configured implements Tool{
         catch (IOException e){}
         Job job = Job.getInstance(configuration, "Sentiment Analysis");
         job.setJarByClass(TweetSentimentAnalysis.class);
-        job.setMapperClass(ClassificatorMapper.class);
+        job.setMapperClass(ClassifierMapper.class);
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(IntWritable.class);
         FileInputFormat.addInputPath(job, new Path(dataset_input_file));
@@ -164,7 +164,7 @@ public class TweetSentimentAnalysis extends Configured implements Tool{
                 CalculatorReducer.class,
                 job);
         job.setReducerClass(CalculatorReducer.class);
-        ClassificatorMapper.setTimestamp(new Timestamp(System.currentTimeMillis()).getTime());
+        ClassifierMapper.setTimestamp(new Timestamp(System.currentTimeMillis()).getTime());
         //job.setNumReduceTasks(1);
         System.exit(job.waitForCompletion(true) ? 0 : 1);
         return 0;

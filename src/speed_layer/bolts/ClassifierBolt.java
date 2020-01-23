@@ -10,7 +10,7 @@ import utils.utils;
 import twitter4j.Status;
 
 // First bolt: filter tweets and calculate their sentiment value
-public class ParserBolt extends BaseBasicBolt {
+public class ClassifierBolt extends BaseBasicBolt {
 
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
         declarer.declare(new Fields("tweet","classification"));
