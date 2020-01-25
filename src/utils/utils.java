@@ -256,7 +256,6 @@ public class utils {
         String hashtagQuery="#"+QUERY;
         for (String word: words){
             if(word.equalsIgnoreCase(QUERY) || word.equals(tagQuery) || word.equals(hashtagQuery)) {
-                System.out.println(text);
                 return true;
             }
         }
