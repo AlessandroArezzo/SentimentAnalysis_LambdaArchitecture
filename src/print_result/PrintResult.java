@@ -74,7 +74,7 @@ public class PrintResult extends ApplicationFrame{
                 JFreeChart barChart = ChartFactory.createBarChart(
                         "Query: " + QUERY,
                         "Sentiment class",
-                        "Value",
+                        "Number of tweets",
                         plot.getCurrentScore(),
                         PlotOrientation.VERTICAL,
                         true, true, false);

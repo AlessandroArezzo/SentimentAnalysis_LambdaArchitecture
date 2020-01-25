@@ -73,8 +73,8 @@ public class TweetSentimentAnalysis extends Configured implements Tool{
             String languageTweet=getTweetLanguage(lineTweet);
             if(utils.containsLanguageTweet(languageTweet) && utils.containQuery(textTweet) && tweetIsToAnlayze(lineTweet)) {
                 int sentiment;
-                String sentimentClass = "Neutral";
                 sentiment = utils.getSentiment(textTweet,languageTweet);
+                String sentimentClass = "Neutral";
                 if (sentiment < 0) {
                     sentimentClass = "Negative";
                 }

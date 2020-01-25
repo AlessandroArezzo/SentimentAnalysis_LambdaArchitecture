@@ -35,7 +35,7 @@ public class utils {
     /* Dataset: for each language (expressed in alpha_2 code) it associate he respective afinn dictionary
     Each afinn dictionary associates to each word contained in the afinn file the respective sentiment value
      */
-    private static HashMap<String,HashMap<String,Integer>> afinnByLanguages=loadAfinnFiles();
+    private static HashMap<String,Map<String,Integer>> afinnByLanguages=loadAfinnFiles();
 
     //Method returns the path of a file by reading its property specified in the configuration file
     public static String getValue(String property){
@@ -118,13 +118,13 @@ public class utils {
         }
         return countries_languages;
     }
-    private static HashMap<String,HashMap<String,Integer>> loadAfinnFiles() {
+    private static HashMap<String,Map<String,Integer>> loadAfinnFiles() {
         String filePath =getValue("PATH_AFINN_FILES");
-        HashMap<String,HashMap<String,Integer>> afinnByLanguages=new HashMap<>();
+        HashMap<String,Map<String,Integer>> afinnByLanguages=new HashMap<>();
         ArrayList<String> allLanguagesToAnalyze=new ArrayList<>((countries_languages.keySet().stream().collect(Collectors.groupingBy(k -> countries_languages.get(k)))).keySet());
         for (String language : allLanguagesToAnalyze) {
             String path = filePath;
-            afinnByLanguages.put(language, new HashMap<String, Integer>());
+            afinnByLanguages.put(language, new TreeMap<String, Integer>(String.CASE_INSENSITIVE_ORDER));
             path = path + "AFINN-165-"+language + ".txt";
             String line;
             try {
@@ -237,7 +237,7 @@ public class utils {
             }
             if (stringToCalculate!=null) {
                 try {
-                    //System.out.println("Word: " + stringToCalculate + " --> Score: " + afinnByLanguages.get(tweet_language).get(stringToCalculate));
+                    System.out.println("Word: " + stringToCalculate + " --> Score: " + afinnByLanguages.get(tweet_language).get(stringToCalculate));
                     sentiment += afinnByLanguages.get(tweet_language).get(stringToCalculate);
                 }
                 catch (NullPointerException e){
@@ -245,7 +245,7 @@ public class utils {
                 }
             }
         }
-        //System.out.println("Value sentiment of tweet is "+sentiment+"\n");
+        System.out.println(text+"--- "+sentiment+"\n");
         return sentiment;
     }
 
