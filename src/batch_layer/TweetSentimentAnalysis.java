@@ -40,9 +40,15 @@ public class TweetSentimentAnalysis extends Configured implements Tool{
         }
 
         private String getTweetText(String line){
+            String text="";
             String[] parts=line.split(regex_csv);
-            String text = parts[positionText];
-            return text.replaceAll("\"","");
+            try {
+                text = parts[positionText];
+                return text.replaceAll("\"","");
+            }
+            catch (ArrayIndexOutOfBoundsException e){
+                return text;
+            }
         }
 
         private String getTweetLanguage(String line){
