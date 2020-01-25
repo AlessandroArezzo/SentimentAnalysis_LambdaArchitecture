@@ -237,7 +237,7 @@ public class utils {
             }
             if (stringToCalculate!=null) {
                 try {
-                    System.out.println("Word: " + stringToCalculate + " --> Score: " + afinnByLanguages.get(tweet_language).get(stringToCalculate));
+                    //System.out.println("Word: " + stringToCalculate + " --> Score: " + afinnByLanguages.get(tweet_language).get(stringToCalculate));
                     sentiment += afinnByLanguages.get(tweet_language).get(stringToCalculate);
                 }
                 catch (NullPointerException e){
@@ -245,7 +245,7 @@ public class utils {
                 }
             }
         }
-        System.out.println(text+"--- "+sentiment+"\n");
+        //System.out.println(text+"--- "+sentiment+"\n");
         return sentiment;
     }
 
