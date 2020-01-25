@@ -21,7 +21,7 @@ public class SentimentAnalyzerTopology {
         LocalCluster cluster = new LocalCluster();
         Config conf = new Config();
         cluster.submitTopology("twitter-analysis-topology", conf, builder.createTopology());
-        Thread.sleep(10* 1000);
+        Thread.sleep(60* 1000);
         cluster.deactivate("twitter-analysis-topology");
         Thread.sleep(1* 1000);
         cluster.killTopology("twitter-analysis-topology");

@@ -254,12 +254,11 @@ public class utils {
         String[] words=text.split(" ");
         String tagQuery="@"+QUERY;
         String hashtagQuery="#"+QUERY;
-        String lowerQuery=QUERY.toLowerCase();
-        String upperQuery=QUERY.toUpperCase();
         for (String word: words){
-            if(word.equals(QUERY) || word.equals(tagQuery) || word.equals(hashtagQuery)
-                    || word.equals(lowerQuery) || word.equals(upperQuery))
+            if(word.equalsIgnoreCase(QUERY) || word.equals(tagQuery) || word.equals(hashtagQuery)) {
+                System.out.println(text);
                 return true;
+            }
         }
         return false;
     }
