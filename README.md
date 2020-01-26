@@ -53,3 +53,4 @@ This is required to be a .csv file in which the attributes of the tweet are sepa
 <li><b>Index of the data in a line of dataset:</b> its necessary to indicate in which position of the row of the master dataset the information about text, timestamp is found. 
 This information is used by batch layer for computing corretly the data and by speed layer for write the new information in the correct position.</li>
 </ul>
+To use the code that shows the histogram of the data contained in HBase, the query to be analyzed must be set as the configuration parameter
